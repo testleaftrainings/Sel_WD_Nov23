@@ -1,0 +1,161 @@
+Control Statements:
+
+They allow you to determine the order in which statements
+are executed based on certain conditions or repetitions.
+
+Java provides several types of control statements:
+
+Conditional Statements:(Selection)
+------------------------
+if statement: It executes a block of code if a specified condition is true.
+syntax:
+
+if(logic){
+body statement
+}
+
+if-else statement: It executes one block of code if a specified condition
+if(condition){
+}
+else{
+print
+}
+is true and another block if it is false.
+
+nested if-else statement: It allows you to have an if-else statement
+inside another if-else statement.
+
+if(condition){
+}
+else if() {
+}
+else if(){
+}
+
+
+switch(condition){
+case 1:
+//code
+break;
+case 2:
+//code 2
+
+Looping Statements:(Iteration)
+-------------------
+for loop: It repeats a block of code a specified number of times.
+
+syntax:
+
+for(int i=0;i<5;i++ ){//0 1 2 3 4 
+
+}
+
+
+while loop: While loops are commonly used when you want to repeat a block of code until a specific condition becomes false. 
+They are flexible and can handle a wide range of scenarios.
+syntax:
+------
+while(condition){
+}
+
+do-while loop: It executes a block of code once 
+and then repeatedly executes it as long as a specified condition is true.
+syntax:
+do{
+code
+}
+while(condition);
+
+forEach(datatype variable:input){
+}
+Jump Statements:
+
+break statement: It terminates the current loop or switch statement
+and transfers control to the statement immediately following it.
+
+continue statement: It skips the rest of the current iteration 
+of a loop and proceeds to the next iteration.
+
+restatement: It terminates the execution of a method and returns a value to the caller.
+Returning a value: When a method has a return type
+(other than void), the return statement is used to return a value of that type. 
+
+Testleaf--->
+
+for(int i =0; i<length;i++){
+
+length =8
+
+if(e==length){
+continue;//4 1 2 5 6 5 
+one num is missing --->3
+
+
+Method signature
+--------------------
+
+syntax:
+access modifier returntype methodname(){
+
+}
+public void driveCar(){
+
+}
+
+
+
+
+1.access modifier---permission
+   a.public----Anyone can access(public transport)
+   b.private---Members of my class(with in same class)(cvv)
+   c.protected---only can be access from same package differ(java adv)
+   d.default----only can be access from same package
+
+2.return type
+------------
+void
+Primitive and Non Primitive data type
+
+The return statement can be used in two ways:
+----------------------------------------------
+
+Returning a value: When a method has a return type
+(other than void), the return statement is used to return a value of that type. 
+
+
+
+Exiting a method: When a method does not have a returntype(i.e., it returns void)
+the return statement is used to exit the method.
+
+public void printNumbers(int n) {
+    for (int i = 1; i <= n; i++) {
+        System.out.println(i);
+        if (i == 5) {
+            return;
+        }
+    }
+}
+3.methodName
+--------------
+--->it should be meaningful
+--->Lowercase following uppercase
+ex:driveCar();
+
+4.Input argument
+------------------
+It is the data needed for the method to work
+It can be no arguments, single or multiple arguments
+It can be primitive and non primitive and mix of both
+
+obj:
+its an instance of a class 
+access the member of the class(variable and methods)
+syntax:
+
+
+ClassName obj =new ClassName();
+
+
+
+
+
