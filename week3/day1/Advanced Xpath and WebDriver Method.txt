@@ -1,0 +1,173 @@
+Advanced Xpath:
+----------------		
+Parent To Child xpath:		
+Syntax: parent Xpath/tagName of child[index]
+		//form[@id='login']/p[2]
+		
+Child to Parent xpath:
+-----------------------
+Syntax: child xpath/parent::tagName of parent
+		//input[@id='password']/parent::p
+		(or)
+		child xpath/..
+		//input[@id='password']/..
+		
+GrandChild to GrandParent:
+---------------------------		
+Syntax: GrandChild xpath/../..		
+		//input[@id='password']/../..
+				or
+		GrandChild xpath/ancestor::tagName of GrandParent
+		//input[@id='password']/ancestor::form
+		
+GrandParent to GrandChild: //
+---------------------------		
+Syntax: GrandParent Xpath//tagName of GrandChild
+		//form[@id='login']//input
+		
+		(//form[@id='login']//input)[1]
+		
+		
+Siblings:
+----------
+Elder to Younger -> Top to Bottom (following)
+----------------
+Syntax: Elder Sibling xpath/following-sibling::tagName of Younger
+		//label[@for='username']/following-sibling::input
+
+
+Younger to Elder -> Bottom to Top (preceding)
+----------------		
+Syntax: Younger Sibling xpath/preceding-sibling::tagName of Elder
+		//input[@id='username']/preceding-sibling::label
+		
+
+
+Cousins:
+---------
+Elder to Younger
+-----------------
+Syntax: Elder Cousin Xpath/following::tagName of Younger
+		//label[@for='username']/following::label
+		
+Younger	to Elder:
+------------------
+Syntax: Younger Cousin Xpath/preceding::tagName of	Elder
+		//input[@type='password']/preceding::input
+
+following -> It will find the immediate match
+preceding -> It will find the first matching tag from the root tag
+
+Advanced Xpath:
+===============
+1.Find the XPath of 1st resulting lead id result of find leads
+(//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a)[1]
+2.Myntra(https://www.myntra.com/)-> mens jeans : Xpath to click on flying machine checkbox
+3.Dominos(https://www.dominos.co.in/)->
+To get DOM-->Right click and inspect /click on 3 dots near the address bar-->more tools-->developer tools/
+ctrl shift i	
+
+Java Advanced:
+1.OOPs
+
+2.Collection
+  1.List 2. Set 3. Map
+
+
+OOPs:
+Object oriented programming language
+Object-Oriented Programming (OOP) is a programming , that focuses on designing and organizing code based on the concept of "objects." 
+1.flexibility
+2.maintain 
+3.reuse
+Class-blue print methods data variable
+object-instance of class
+
+---->Inheritance
+---->Polymorphism
+---->Abstraction
+---->Encapsulation
+
+Inheritance:
+------------
+inherit the property (variable/method) from one class to another
+1.Reusability of code
+2.memory management
+keyword-extends
+Base/super/parent class
+derived/subclass/child class
+
+types:
+single inheritance
+Multilevel inheritance
+Multiple inheritance-Not support in java class but we can achieve by interface
+
+
+
+static keyword:
+
+The static keyword can be used as a 
+static variable, static method, static block, and static class. 
+
+1.static keyword with variable it is called static variable
+
+Syntax to declare the static variables:
+
+static dataType variableName = value;
+
+2. Static method in Java
+
+You can declare a static method by using of static keyword.
+1. Static methods are belonging to a class.
+2. You can access a static method by using the class name. You do not have the need to create an object.
+3. A static method can access only static variables. If you write any non-static variable in a static method,
+then it will throw an exception at compilation time.
+syntax:
+access_modifier static return_Type method_Name()
+{
+    // body of method
+}
+
+
+WebDriver Method:
+-----------------
+Browser verification method:
+-----------------------------
+getTitle-current open page title
+String title = driver.getTitle();
+System.out.println(title);
+
+getCurrentUrl-String of current URL that the browser is
+String url = driver.getCurrentUrl();
+System.out.println(url);
+
+getPageSource-Get the dom page content
+
+String pageSource = driver.getPageSource();
+System.out.println(pageSource);
+
+getAttribute--Get the value of the given attribute of the element.
+Will return the current value, even if this has been modified after the page has been loaded. 
+This method will return the value of the property with the given name,if it exists.
+If it does not, then the value of the attribute with the given name is returned. Ifneither exists, null is returned.
+Code
+-----
+String value = driver.findElement(By.id("j_idt88:j_idt97")).getAttribute("value");
+System.out.println(value);
+
+getCssValue
+Get the value of a given CSS property. 
+Color values could be returned as rgba or rgb strings.
+This depends on whether the browser omits the implicit opacity value or not. 
+
+For example: if the "background-color" property is set as "green" in the HTML source, 
+thereturned value could be "rgba(0, 255, 0, 1)" if implicit opacity value is preserved or "rgb(0,255, 0)" if it is omitted. 
+
+String cssValue =driver.findElement(By.xpath("//section[contains(text(),'GET CAR')]")).getCssValue("background-color");
+System.out.println(cssValue);
+
+getText-Get the visible (i.e. not hidden by CSS) text of this element, including sub-elements. 
+
+String text = driver.findElement(By.id("viewLead_companyName_sp")).getText();
+		
+System.out.println(text);
