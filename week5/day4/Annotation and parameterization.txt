@@ -1,0 +1,172 @@
+Today's Agenda
+==============
+Annotations 
+
+-- 
+
+File types: class, interface, annotation, enum !!
+
+@BeforeSuite
+    @BeforeTest
+        @BeforeClass
+            @BeforeMethod
+                @Test (Mandatory)
+            @AfterMethod
+        @AfterClass
+    @AfterTest
+@AfterSuite
+
+@BeforeSuite
+ @BeforeTest
+@BeforeClass
+@BeforeMethod
+@Test
+@AfterMethod
+@AfterClass
+@AfterTest
+@AfterSuite
+
+@BeforeSuite--->Report step
+
+  @BeforeTest--->setup(open the excel)
+  
+     @BeforeClass--->Testdetail(name,des,cate,autho)
+	 
+	    @BeforeMethod---->Launch the browser--->precondition
+		
+		   @Test----->Mandatory 
+		   
+		@AfterMethod----->driver.close (close the browser)-postCondition
+		
+	 @AfterClass--->close setup
+	 
+  @AfterTest--->close the excel or db
+  
+@AfterSuite---->close the report
+
+Out of the above, only @Test is mandatory annotation for TestNg and all others are optional.
+
+@BeforeGroups, @AfterGroups 
+_________________________________________________________________________________________
+Before Suite  --> Before running all the test cases in the XML file 
+
+Real-time usecases: 
+
+1) Create a database connection for querying data 
+(Only once required for entire test suite)
+
+2) Create the HTML reporting file with date
+
+_________________________________________________________________________________________
+Before Test  --> Before running every module (set of test cases per module)
+
+Real-time usecase: Set the module name for reporting purposes
+(Only once required for entire module)
+
+_________________________________________________________________________________________
+Before Class  --> Before running every class (a java class)
+
+Real-time usecase: Set the author name for java class for reporting purposes
+(Only once required for entire java class)
+
+_________________________________________________________________________________________
+Before Method  --> Before running every test case (before @Test method)
+
+Real-time usecase: Launch the browser, login to application
+(Only once required before @Test)
+
+Attributes
+Parameterization
+
+Learn Attributes:
+priority:
+---------
+1.Priority- will work with in the class
+2.Lower priority will be scheduled first-1,0,1....
+3.useful for a developer
+
+
+enabled/@ignore    
+-----------------
+Whether methods on this class/method are enabled.
+enabled is at method level
+@ignore can use at the class level
+Default value-True
+
+3.invocationcount: 3 c e d-1s
+the number of times this method should be invoked
+Use:you like to create data  for same information
+
+invocationTimeOut:
+The maximum number of milliseconds this test should take for 
+cumulated time of all the  invocationcount.5
+This attribute will be ignore if invocation count is not specified
+Do not use it.
+
+threadPoolSize-3
+The size of the thread pool for this method. The method will be invoked from multiple threads as specified by invocationCount.
+Note: this attribute is ignored if invocationCount is not specified
+
+4.dependsonMethods
+--------------------
+The list of methods this method depends on.
+delete----depends --->create
+
+alwaysrun:
+If set to true, this test method will always be run even if it depends on a method that failed.
+
+
+priority vs dependsonMethods
+priority will work with in the class whereas dom--->across the classes
+priority will run even when previous priority fails but dom does not work
+
+Timeout:
+The maxmium number milliseconds this test should complete if not test fail.
+Parameterization:
+================
+-No hard code of data inside the java class
+-preferred to automate them by passing from external source(excel,xml,json,db)
+
+ 2 types:
+ ---------
+
+--->static(@Parameters)
+ if it is common across multiple testcases then u can keep in xml
+ 
+ Example:url,username,password
+ 
+ 
+--->Dynamic(@DataProvider)
+ it is specific to testcase.cannot reuse most of them we have in java(excel)
+ Example:company name,firstname,lastname,phonenumber.........
+
+Steps to implement static parameter
+
+1.Identify the data that need to be static in xml(url,username,password)
+
+2.Add the parameter tag for each one the data in xml file
+
+3.Map the parameter in the java class(projectspecificmethod) using @Parameters
+Note:the name is casesensitive so exactly the name match in th xml
+
+4.use that parameter inside the method using arguments
+Note:sequence matter but the name of the arguments does not matter
+
+5.Now,we can replace arguments with hard code of value
+you should always run in xml becoz of parameter
+----------------------------------------------------------
+Dynamic:
+-----------
+Steps to implement DataProvider
+==================================
+1) Identify the data that are need to be dynamic for the particular testcase
+    - Create Lead : companyName, firstName, lastName....
+    - Edit Lead: phoneNumber, companyName.....
+2) Create a method to pass data with @DataProvider annotation
+3) Create Input array with number of columns (number of data / fields) and number of rows
+    - Make sure the index starts at 0
+4) Return data back to the calling class (return)
+5) Receive this data in the testcase
+    - use dataprovider attribute
+    - Use that arguments inside the method
+6) Finally, replace the hard coded value.
