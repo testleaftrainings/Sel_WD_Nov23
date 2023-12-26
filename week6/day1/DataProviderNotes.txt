@@ -1,0 +1,38 @@
+To read  data from the Excel file
+---------------------------------
+Add Apache POI dependency into pom.xml (poi and poi-ooxml)
+Create a excel sheet and add it to the project
+create a class under the package as ReadData
+
+----------------
+To integrate the Excel code with the TestNG dataprovider method
+--------------------------------------------------------------
+
+1. Convert the main method into normal method
+2.Create a 2d empty string array on top of the for loop;
+3. Assign the value get from thexcel to the 2d array
+data[i-1][0]=stringCellvalue
+4.Return the data
+5.Call the readData method into the DataProvider method
+ 
+ 
+Hirerachy of Exceution (TestNgAnnot)
+
+BeforeSuite
+ BeforeTest
+  BeforeClass
+    DataProvider
+	 BeforeMethod
+	  Test
+	  
+	  
+	   0				1		2
+	 0  cname  		 fname 	lnmae
+	  
+	 1  Testleaf		Vidya 	R
+	  
+	  getRow(0) -->cname
+	  getRow(1) and getCell(0)-->Testleaf
+	  [1,0]
+	  array index always starts with zero
+	  data[i-1][j]=values[1][0]
