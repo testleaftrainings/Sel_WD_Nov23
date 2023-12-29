@@ -1,0 +1,79 @@
+Agenda:
+------
+Static and Dynamic Parametrization
+Hooks Implementation/Common Config
+
+static  --
+      Parametrize the java methods and reading the data form the feature 
+	  
+	  In feature file:
+	  For username and password ->  'value'	
+	 In Strpdef-->login.java
+	 -->{string} in the cucmberannotation
+	 -->Pass the value through the argument in the respective methods
+	 In runner
+	  monochrome and publish set to true
+
+Dynamic
+
+Scenario Outline : 
+   <cname>
+Examples
+|cname|
+|'TL'|
+
+stepDef
+ Parametrize the respect methods using {string}
+
+
+Background keyword-->support common configuration of feature steps in different scenarios 
+  of one single feature file
+  -->applicable for pre-conditions
+  
+  drawback
+      -->Background steps are not shared between the features
+	  -->can not be applicable to post-Conditions
+
+Challenges 
+      -->Background steps are not shared between the features
+	  -->can not be applicable to post-Conditions as a common config
+	  -->Multiple java classes for the execution
+	  
+	  
+	  io.cucumber.java.InvalidMethodException: 
+	  You're not allowed to extend classes that define Step Definitions or hooks. class stepdef.CreateLead extends class stepdef.Login
+	  Hooks -->cucumber annotations -->it will not support inheritance
+Hooks implementation
+ -------------
+  Hooks -->Ruby
+    -->pre and post condition steps 
+	-->multiple classes for feature impl
+	
+	Steps:
+	------
+	
+	Create a class as HooksImpl
+	Create 2 methods under HooksImpl as pre and post condition
+	Add the logic with repect to the methods
+	And annote the methods with @Before and @After
+	Extended the HooksImpl for all the java classes
+	
+	 the above config thrown the exception as Hook cannot be inherited
+	 
+	 To resolve this
+	 ---------------
+	 Create a Baseclass and just declare the driver variable
+	 Extend the HooksImpl ,Login and CreateLead classes with BaseClass
+	 
+	 BaseClass(driver dec)-->HooksClass 
+	 
+	 Runner -->HooksClass -->driver variable (stores the instance in global variable in baseclass)
+	         driver instance,  browser ,Url 
+	 Login class -->Baseclass  ->credentials, login functionality -->requires only driver instance 
+	 CreateLead-->BaseClass -->createlead,create
+	 
+	 
+	 
+	 
+	 
+	 
