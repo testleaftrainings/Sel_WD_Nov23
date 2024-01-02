@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="21474" started-at="2024-01-02T12:47:38 IST" finished-at="2024-01-02T12:47:59 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="21474" started-at="2024-01-02T12:47:38 IST" finished-at="2024-01-02T12:47:59 IST">
+      <class name="testcase.CreateLeadTest">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:testcase.CreateLeadTest@12cdcf4]" name="preCondition" is-config="true" duration-ms="13385" started-at="2024-01-02T12:47:38 IST" finished-at="2024-01-02T12:47:51 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="runCreateLead()[pri:0, instance:testcase.CreateLeadTest@12cdcf4]" name="runCreateLead" duration-ms="8021" started-at="2024-01-02T12:47:51 IST" finished-at="2024-01-02T12:47:59 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runCreateLead -->
+      </class> <!-- testcase.CreateLeadTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
